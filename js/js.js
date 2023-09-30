@@ -54,23 +54,31 @@ refs.otvet.addEventListener('focusout', checkRezalt);
  function checkRezalt() {
     // let length = textInput.value.trim().length
     if (bbb * randomB === Number(refs.otvet.value)) {
-        refs.otvet.classList.add('valid');
-        refs.otvet.classList.remove('invalid');
+      refs.otvet.classList.add('valid');
+      refs.otvet.classList.remove('invalid');
+      let mySound = new Audio('/images/knopka-tsifrovoi-odinochnyii-multyashnyii-bulkayuschii.mp3')
+      mySound.play()
     } else {
         refs.otvet.classList.add('invalid');
-        refs.otvet.classList.remove('valid');
+      refs.otvet.classList.remove('valid');
+
+        let mySound = new Audio('/images/knopka-tsifrovoi-zvonkii-blizkii-korotkii.mp3')
+mySound.play()
     }
 
+   
+
+   
     console.log(bbb * randomB);
   console.log(refs.otvet.value);
   
 
 };
 function onKeypress(e) {
-  if (e.code === 'NumpadEnter') {
+  if (e.code === 'NumpadEnter' || e.code === 'Enter') {
    return checkRezalt();
 }
-    if (e.code === 'Space') {
+  if (e.code === 'Space') {
    return clickResalt();
     console.dir(e.code);
 }
@@ -79,5 +87,7 @@ function onKeypress(e) {
 
 refs.btnReload.addEventListener('click', clickResalt);
 function clickResalt() {
- location. reload() 
+
+  location.reload() 
+
 }
