@@ -22,9 +22,9 @@ function getRandomArbitrary(min, max) {
   return parseInt(Math.random() * (max - min) + min);
 }
 console.log(getRandomArbitrary(2, 5));
+let bbb = getRandomArbitrary(2, 5)
 
-
-console.log(`${a} * ${randomB} = ${a * randomB}`);
+console.log(`${bbb} * ${randomB} = ${bbb * randomB}`);
 
 
 // const script = document.createElement('div');
@@ -38,30 +38,44 @@ function destroyBoxes() {
     insertAdjacentHTML('afterbegin',
     `
 <p style = ' font-size: 200px; color: white; margin: 90px;'>
-${a} x ${randomB} = 
+${bbb} x ${randomB} = 
 </p>
 `
-  
-  
   );
     // refs.inputControls.value = "";
 }
 destroyBoxes();
 
-refs.otvet.addEventListener('focusout', e => {
+window.addEventListener('keypress', onKeypress);
+
+
+
+refs.otvet.addEventListener('focusout', checkRezalt);
+ function checkRezalt() {
     // let length = textInput.value.trim().length
-    if (a * randomB === Number(refs.otvet.value)) {
+    if (bbb * randomB === Number(refs.otvet.value)) {
         refs.otvet.classList.add('valid');
-        // refs.otvet.classList.remove('invalid');
+        refs.otvet.classList.remove('invalid');
     } else {
         refs.otvet.classList.add('invalid');
-        // refs.otvet.classList.remove('valid');
+        refs.otvet.classList.remove('valid');
     }
 
-    console.log(a * randomB);
-    console.log(refs.otvet.value);
-});
+    console.log(bbb * randomB);
+  console.log(refs.otvet.value);
+  
 
+};
+function onKeypress(e) {
+  if (e.code === 'NumpadEnter') {
+   return checkRezalt();
+}
+    if (e.code === 'Space') {
+   return clickResalt();
+    console.dir(e.code);
+}
+  
+}
 
 refs.btnReload.addEventListener('click', clickResalt);
 function clickResalt() {
