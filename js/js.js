@@ -56,13 +56,13 @@ refs.otvet.addEventListener('focusout', checkRezalt);
     if (bbb * randomB === Number(refs.otvet.value)) {
       refs.otvet.classList.add('valid');
       refs.otvet.classList.remove('invalid');
-      let mySound = new Audio('./images/knopka-tsifrovoi-odinochnyii-multyashnyii-bulkayuschii.mp3')
+      let mySound = new Audio('../images/knopka-tsifrovoi-odinochnyii-multyashnyii-bulkayuschii.mp3')
       mySound.play()
     } else {
         refs.otvet.classList.add('invalid');
       refs.otvet.classList.remove('valid');
 
-        let mySound = new Audio('./images/knopka-tsifrovoi-zvonkii-blizkii-korotkii.mp3')
+        let mySound = new Audio('../images/knopka-tsifrovoi-zvonkii-blizkii-korotkii.mp3')
 mySound.play()
     }
 
